@@ -3,9 +3,6 @@
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Lexend:wght@400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Manrope:wght@400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Rubik:wght@400&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,18 +17,20 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
     <link rel="stylesheet" href="styles.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Cargar AOS CSS en diferido -->
+    <link rel="preload" href="https://unpkg.com/aos@2.3.1/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"></noscript>
 
     <meta property="og:title" content="Aivange | Automatización inteligente con IA para escalar tu negocio">
     <meta property="og:description" content="Agencia especializada en automatización y soluciones con inteligencia artificial para escalar negocios de forma eficiente. Consultoría, integración y soporte IA.">
-    <meta property="og:image" content="assets/aivange_logo_letras.png">
+    <meta property="og:image" content="assets/aivange_logo_letras.webp">
     <meta property="og:url" content="https://tusitio.com">
     <meta property="og:type" content="website">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Aivange - Automatización con IA">
     <meta name="twitter:description" content="Descubre cómo escalar tu negocio con inteligencia artificial y automatización.">
-    <meta name="twitter:image" content="assets/aivange_logo_letras.png">
+    <meta name="twitter:image" content="assets/aivange_logo_letras.webp">
 
     <script type="application/ld+json">
     {
@@ -40,34 +39,34 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "¿La IA es solo para grandes empresas? ¿Mi negocio puede beneficiarse?",
+          "name": "¿Esto es solo para agencias grandes? ¿Sirve si soy una agencia chica o freelance?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "La Inteligencia Artificial es una herramienta versátil. Empresas de todos los tamaños y sectores (desde pymes hasta grandes corporaciones) están optimizando sus procesos, reduciendo costos significativamente y tomando decisiones más estratégicas gracias a nuestras soluciones personalizadas."
+            "text": "Totalmente. De hecho, muchas de nuestras automatizaciones están pensadas para agencias pequeñas o medianas que quieren ahorrar tiempo, profesionalizarse y escalar sin sumar más personas al equipo."
           }
         },
         {
           "@type": "Question",
-          "name": "¿Qué tan rápido veremos resultados con la IA?",
+          "name": "¿Necesito saber de programación para usar esto?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Gracias a nuestra metodología ágil y probada, el tiempo de implementación varía según la complejidad, pero la mayoría de nuestros clientes comienzan a ver resultados tangibles en pocas semanas. Nuestro objetivo es la velocidad con eficacia."
+            "text": "No. Nos encargamos de todo el diseño, implementación y puesta en marcha. Las automatizaciones quedan funcionando solas y te enseñamos solo lo necesario para que puedas ver resultados sin complicaciones."
           }
         },
         {
           "@type": "Question",
-          "name": "¿La IA amenaza los puestos de trabajo de mi equipo?",
+          "name": "¿Cuánto tarda en implementarse y dar resultados?,
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Absolutamente no. La IA está diseñada como un potenciador para tu equipo. Automatiza las tareas repetitivas y tediosas, liberando a tus colaboradores para que se enfoquen en actividades de mayor valor, creatividad y relación humana. Tu equipo será más estratégico y productivo, no reemplazado."
+            "text": "Depende del flujo que quieras automatizar, pero en general en menos de 2 semanas ya puedes tener la primera solución funcionando y ahorrándote horas por semana."
           }
         },
         {
           "@type": "Question",
-          "name": "¿Recibiremos apoyo continuo y capacitación para usar la IA?          ",
+          "name": "¿Con qué herramientas se integra? ¿Funciona con lo que ya uso?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sí, nuestro compromiso no termina con la implementación. Brindamos acompañamiento experto y capacitación personalizada a tu equipo para asegurar que aprovechen al máximo las soluciones de IA, garantizando una adopción fluida y el máximo retorno."
+            "text": "¡Sí! Trabajamos con herramientas como Google Sheets, Slack, Notion, Meta Ads, Gmail, y muchas más. No tienes que cambiar nada: adaptamos la IA a tu stack actual."
           }
         }
       ]
@@ -141,7 +140,7 @@
       "@type": "Organization",
       "name": "Aivange",
       "url": "https://tusitio.com",
-      "logo": "https://tusitio.com/assets/aivange_logo_letras.png"
+      "logo": "https://tusitio.com/assets/aivange_logo_letras.webp"
     }
     </script>
 </head>
@@ -150,7 +149,7 @@
     <header class="dynamic-header" id="dynamicHeader">
         <div class="header-content">
             <div class="header-logo">
-                <img src="assets/aivange_logo_letras.png" alt="Logo de Aivange, agencia de automatización e inteligencia artificial" loading="lazy">
+                <img src="assets/aivange_logo_letras.webp" alt="Logo de Aivange, agencia de automatización e inteligencia artificial" loading="lazy">
             </div>
             <nav aria-label="Navegación principal">
                 <button class="header-button" onclick="window.location.href='#contacto'">Optimizar Mi Agencia con IA</button>
@@ -170,7 +169,7 @@
     <div class="pulse pulse-3"></div>
   </div>
   <div class="container">
-    <img src="assets/aivange_logo_letras.png" alt="Logo de Aivange, automatización para agencias de marketing" class="hero-logo" data-aos="fade-up" data-aos-delay="200" loading="lazy">
+    <img src="assets/aivange_logo_letras.webp" alt="Logo de Aivange, automatización para agencias de marketing" class="hero-logo" data-aos="fade-up" data-aos-delay="200" loading="lazy">
     
     <h1 data-aos="fade-up" data-aos-delay="400">
       Tu agencia, sin tareas repetitivas. <br />
@@ -248,7 +247,6 @@
       <div class="process-connector"></div>
 
       <div class="process-card" data-aos="fade-up" data-aos-delay="300">
-        <div class="process-number">1</div>
         <div class="process-icon">
           <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="20" cy="20" r="18" stroke="#0066ff" stroke-width="2" fill="none"/>
@@ -261,7 +259,6 @@
       </div>
 
       <div class="process-card" data-aos="fade-up" data-aos-delay="400">
-        <div class="process-number">2</div>
         <div class="process-icon">
           <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="8" y="8" width="24" height="24" rx="6" stroke="#0066ff" stroke-width="2" fill="none"/>
@@ -273,7 +270,6 @@
       </div>
 
       <div class="process-card" data-aos="fade-up" data-aos-delay="500">
-        <div class="process-number">3</div>
         <div class="process-icon">
           <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="20" cy="20" r="18" stroke="#0066ff" stroke-width="2" fill="none"/>
@@ -300,7 +296,7 @@
 
       <div class="servicio-card" data-aos="fade-up" data-aos-delay="100">
         <div class="servicio-card-img-container agente-img-destacada">
-          <img src="assets/agente.png" alt="Agentes IA" class="servicio-card-img agente-img-grande" loading="lazy">
+                          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f0f0f0'/%3E%3C/svg%3E" data-src="assets/agente.webp" alt="Agentes IA" class="servicio-card-img agente-img-grande lazy-image" loading="lazy">
         </div>
         <h3 class="servicio-card-title">Agentes IA para tu día a día</h3>
         <p class="servicio-card-desc">
@@ -310,7 +306,7 @@
 
       <div class="servicio-card" data-aos="fade-up" data-aos-delay="200">
         <div class="servicio-card-img-container agente-img-destacada">
-          <img src="assets/analisis.png" alt="Análisis predictivo" class="servicio-card-img agente-img-grande" loading="lazy">
+                          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f0f0f0'/%3E%3C/svg%3E" data-src="assets/analisis.webp" alt="Análisis predictivo" class="servicio-card-img agente-img-grande lazy-image" loading="lazy">
         </div>
         <h3 class="servicio-card-title">Automatización de documentos y briefs</h3>
         <p class="servicio-card-desc">
@@ -320,7 +316,7 @@
 
       <div class="servicio-card" data-aos="fade-up" data-aos-delay="300">
         <div class="servicio-card-img-container agente-img-destacada">
-          <img src="assets/integracion.png" alt="Integración ágil" class="servicio-card-img agente-img-grande" loading="lazy">
+                          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f0f0f0'/%3E%3C/svg%3E" data-src="assets/integracion.webp" alt="Integración ágil" class="servicio-card-img agente-img-grande lazy-image" loading="lazy">
         </div>
         <h3 class="servicio-card-title">Integraciones sin fricción entre tus herramientas</h3>
         <p class="servicio-card-desc">
@@ -385,7 +381,7 @@
             <div class="form-card" data-aos="fade-up">
                 <h2 class="form-title">Inicia tu Transformación IA. Estamos Listos para Impulsarte.</h2>
                 <p class="form-subtitle">Cuéntanos sobre los desafíos de tu agencia. Agenda una conversación estratégica para explorar cómo la IA puede llevarte al siguiente nivel.</p>
-            <form action="https://agus11k.app.n8n.cloud/webhook/form-landing" method="POST">
+            <form action="https://agus11k.app.n8n.cloud/webhook/form-landing" method="POST" data-form="contact">
                 <div class="form-group" data-aos="fade-up" data-aos-delay="200">
                     <label for="name">Nombre</label>
                     <input type="text" id="name" name="name" required>
@@ -413,7 +409,7 @@
         <div class="container">
             <div class="footer-container">
                 <div class="footer-column">
-                    <img src="assets/aivange_logo_letras_blanco.png" alt="Aivange" class="footer-logo" loading="lazy">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 50'%3E%3Crect width='200' height='50' fill='%23ffffff'/%3E%3C/svg%3E" data-src="assets/aivange_logo_letras_blanco.webp" alt="Aivange" class="footer-logo lazy-image" loading="lazy">
                     <p>Transformando agencias con soluciones de inteligencia artificial personalizadas.</p>
                 </div>
                 <div class="footer-column">
@@ -442,6 +438,5 @@
     </footer>
 
     <script src="script.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </body>
 </html>

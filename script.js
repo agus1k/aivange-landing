@@ -78,64 +78,84 @@ function setupDynamicHeader() {
 
 window.addEventListener('DOMContentLoaded', setupDynamicHeader);
 
-// Inicialización de AOS (Animaciones al hacer scroll)
+// Cargar funcionalidad del formulario solo cuando se hace focus
 document.addEventListener('DOMContentLoaded', function() {
-  if (window.AOS) {
-    AOS.init({
-      duration: 800,
-      easing: 'ease-in-out',
-      once: true,
-      offset: 100
-    });
+  const form = document.querySelector('[data-form="contact"]');
+  if (form) {
+    form.addEventListener('focusin', function() {
+      // El formulario ya está cargado, no necesitamos hacer nada adicional
+      // Pero podemos agregar funcionalidad adicional aquí si es necesario
+    }, { once: true });
   }
 });
 
-// Tabs modernos con underline animado y accesibilidad
-function setupModernTabs() {
-  const tabList = document.querySelector('.modern-tabs');
-  if (!tabList) return;
-  const tabs = Array.from(tabList.querySelectorAll('.modern-tab'));
-  const panels = Array.from(document.querySelectorAll('.modern-tab-panel'));
-
-  // Crear underline animado
-  let underline = document.createElement('div');
-  underline.className = 'modern-tab-underline';
-  tabList.appendChild(underline);
-
-  function updateUnderline() {
-    const activeIdx = tabs.findIndex(tab => tab.getAttribute('aria-selected') === 'true');
-    if (activeIdx === -1) return;
-    const activeTab = tabs[activeIdx];
-    const tabRect = activeTab.getBoundingClientRect();
-    const listRect = tabList.getBoundingClientRect();
-    underline.style.left = (activeTab.offsetLeft) + 'px';
-    underline.style.width = activeTab.offsetWidth + 'px';
-  }
-
-  function activateTab(idx) {
-    tabs.forEach((tab, i) => {
-      tab.setAttribute('aria-selected', i === idx ? 'true' : 'false');
-      tab.tabIndex = i === idx ? 0 : -1;
-      panels[i].hidden = i !== idx;
-    });
-    updateUnderline();
-    tabs[idx].focus();
-  }
-
-  tabs.forEach((tab, idx) => {
-    tab.addEventListener('click', () => activateTab(idx));
-    tab.addEventListener('keydown', (e) => {
-      let newIdx = idx;
-      if (e.key === 'ArrowRight') newIdx = (idx + 1) % tabs.length;
-      if (e.key === 'ArrowLeft') newIdx = (idx - 1 + tabs.length) % tabs.length;
-      if (newIdx !== idx) {
-        activateTab(newIdx);
-      }
-    });
-  });
-
-  window.addEventListener('resize', updateUnderline);
-  // Inicializar
-  setTimeout(updateUnderline, 100); // Espera a que renderice
+// Cargar AOS JS en diferido
+function loadAOS() {
+  const script = document.createElement('script');
+  script.src = 'https://unpkg.com/aos@2.3.1/dist/aos.js';
+  script.onload = function() {
+    if (window.AOS) {
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        offset: 100
+      });
+    }
+  };
+  document.head.appendChild(script);
 }
-document.addEventListener('DOMContentLoaded', setupModernTabs);
+
+// Cargar AOS cuando el usuario hace scroll
+let aosLoaded = false;
+window.addEventListener('scroll', function() {
+  if (!aosLoaded && window.pageYOffset > 100) {
+    loadAOS();
+    aosLoaded = true;
+  }
+}, { passive: true });
+
+// Cargar AOS después de 2 segundos si no se ha hecho scroll
+setTimeout(function() {
+  if (!aosLoaded) {
+    loadAOS();
+    aosLoaded = true;
+  }
+}, 2000);
+
+// Lazy Loading para imágenes
+function setupLazyLoading() {
+  const lazyImages = document.querySelectorAll('.lazy-image');
+  
+  if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src;
+          img.classList.add('loaded');
+          imageObserver.unobserve(img);
+        }
+      });
+    }, {
+      rootMargin: '50px 0px',
+      threshold: 0.1
+    });
+
+    lazyImages.forEach(img => {
+      imageObserver.observe(img);
+    });
+  } else {
+    // Fallback para navegadores que no soportan Intersection Observer
+    lazyImages.forEach(img => {
+      img.src = img.dataset.src;
+      img.classList.add('loaded');
+    });
+  }
+}
+
+// Inicializar lazy loading cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', setupLazyLoading);
+
+
+
