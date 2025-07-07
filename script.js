@@ -89,6 +89,29 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+// Integración reCAPTCHA v3 para el formulario de contacto
+(function() {
+  const form = document.querySelector('[data-form="contact"]');
+  if (!form) return;
+
+  form.addEventListener('submit', function(e) {
+    // Si el campo recaptcha_token ya tiene valor, dejamos enviar (previene bucle)
+    if (document.getElementById('recaptchaToken').value) return;
+    e.preventDefault();
+    if (typeof grecaptcha !== 'undefined') {
+      grecaptcha.ready(function() {
+        grecaptcha.execute('6Let_norAAAAAGLJubmK22lpFTIACv20xt_CCGmG', { action: 'contact' }).then(function(token) {
+          document.getElementById('recaptchaToken').value = token;
+          form.submit();
+        });
+      });
+    } else {
+      // Si grecaptcha no está disponible, enviar igual (fallback)
+      form.submit();
+    }
+  });
+})();
+
 // Cargar AOS JS en diferido
 function loadAOS() {
   const script = document.createElement('script');

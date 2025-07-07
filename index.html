@@ -383,21 +383,25 @@
                 <p class="form-subtitle">Cuéntanos sobre los desafíos de tu agencia. Agenda una conversación estratégica para explorar cómo la IA puede llevarte al siguiente nivel.</p>
             <form action="https://aivagesolutions.xyz/webhook/form-landing" method="POST" data-form="contact">
                 <div class="form-group" data-aos="fade-up" data-aos-delay="200">
-                    <label for="name">Nombre</label>
+                    <label for="name" placeholder="Nombre">Nombre</label>
                     <input type="text" id="name" name="name" required>
                 </div>
                 <div class="form-group" data-aos="fade-up" data-aos-delay="300">
-                    <label for="email">Email</label>
+                    <label for="email" placeholder="Email">Email</label>
                     <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group" data-aos="fade-up" data-aos-delay="400">
-                    <label for="company">Empresa</label>
+                    <label for="company" placeholder="Empresa">Empresa</label>
                     <input type="text" id="company" name="company">
                 </div>
                 <div class="form-group" data-aos="fade-up" data-aos-delay="500">
-                    <label for="message">Mensaje</label>
+                    <label for="message" placeholder="Escribe tu mensaje aquí">Mensaje</label>
                     <textarea id="message" name="message" required></textarea>
                 </div>
+                <!-- Honeypot (campo invisible para bots) -->
+                <input type="text" name="website" style="display:none" autocomplete="off">
+                <!-- Campo oculto para token reCAPTCHA -->
+                <input type="hidden" id="recaptchaToken" name="recaptcha_token">
                 <button type="submit" class="btn" data-aos="fade-up" data-aos-delay="600">Optimizar Mi Agencia con IA</button>
             </form>
             </div>
@@ -427,7 +431,7 @@
                 <div class="footer-column">
                     <h3>Contacto</h3>
                     <ul>
-                        <li>Email: info@aiagency.com</li>
+                        <li>Email: contacto@aivange.com</li>
                     </ul>
                 </div>
             </div>
@@ -437,6 +441,7 @@
         </div>
     </footer>
 
+    <script src="https://www.google.com/recaptcha/api.js?render=6Let_norAAAAAGLJubmK22lpFTIACv20xt_CCGmG"></script>
     <script src="script.js"></script>
 </body>
 </html>
