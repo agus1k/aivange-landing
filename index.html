@@ -381,22 +381,22 @@
             <div class="form-card" data-aos="fade-up">
                 <h2 class="form-title">Inicia tu Transformación IA. Estamos Listos para Impulsarte.</h2>
                 <p class="form-subtitle">Cuéntanos sobre los desafíos de tu agencia. Agenda una conversación estratégica para explorar cómo la IA puede llevarte al siguiente nivel.</p>
-            <form action="https://aivagesolutions.xyz/webhook/form-landing" method="POST" data-form="contact">
+            <form id="contact-form">
                 <div class="form-group" data-aos="fade-up" data-aos-delay="200">
-                    <label for="name" placeholder="Nombre">Nombre</label>
-                    <input type="text" id="name" name="name" required>
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" name="name" placeholder="Nombre" required >
                 </div>
                 <div class="form-group" data-aos="fade-up" data-aos-delay="300">
-                    <label for="email" placeholder="Email">Email</label>
-                    <input type="email" id="email" name="email" required>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required  placeholder="Email">
                 </div>
                 <div class="form-group" data-aos="fade-up" data-aos-delay="400">
-                    <label for="company" placeholder="Empresa">Empresa</label>
-                    <input type="text" id="company" name="company">
+                    <label for="company">Empresa</label>
+                    <input type="text" id="company" name="company" placeholder="Empresa">
                 </div>
                 <div class="form-group" data-aos="fade-up" data-aos-delay="500">
-                    <label for="message" placeholder="Escribe tu mensaje aquí">Mensaje</label>
-                    <textarea id="message" name="message" required></textarea>
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" name="message" placeholder="Escribe tu mensaje aquí" required></textarea>
                 </div>
                 <!-- Honeypot (campo invisible para bots) -->
                 <input type="text" name="website" style="display:none" autocomplete="off">
@@ -404,7 +404,7 @@
                 <input type="hidden" id="recaptchaToken" name="recaptcha_token">
                 <button type="submit" class="btn" data-aos="fade-up" data-aos-delay="600">Optimizar Mi Agencia con IA</button>
             </form>
-            </div>
+            <div id="form-response" style="display:none; margin-top:10px;"></div>
         </div>
     </section>
     </main>
@@ -437,6 +437,11 @@
             </div>
             <div class="copyright">
                 <p>&copy; 2025 Aivange. Todos los derechos reservados.</p>
+            </div>
+            <div class="recaptcha-notice" style="font-size:0.95em; color:#888; text-align:center; margin-top:10px;">
+              Este sitio está protegido por reCAPTCHA y se aplican la 
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Política de privacidad</a> y los 
+              <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Términos de servicio</a> de Google.
             </div>
         </div>
     </footer>

@@ -78,39 +78,6 @@ function setupDynamicHeader() {
 
 window.addEventListener('DOMContentLoaded', setupDynamicHeader);
 
-// Cargar funcionalidad del formulario solo cuando se hace focus
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.querySelector('[data-form="contact"]');
-  if (form) {
-    form.addEventListener('focusin', function() {
-      // El formulario ya está cargado, no necesitamos hacer nada adicional
-      // Pero podemos agregar funcionalidad adicional aquí si es necesario
-    }, { once: true });
-  }
-});
-
-// Integración reCAPTCHA v3 para el formulario de contacto
-(function() {
-  const form = document.querySelector('[data-form="contact"]');
-  if (!form) return;
-
-  form.addEventListener('submit', function(e) {
-    // Si el campo recaptcha_token ya tiene valor, dejamos enviar (previene bucle)
-    if (document.getElementById('recaptchaToken').value) return;
-    e.preventDefault();
-    if (typeof grecaptcha !== 'undefined') {
-      grecaptcha.ready(function() {
-        grecaptcha.execute('6Let_norAAAAAGLJubmK22lpFTIACv20xt_CCGmG', { action: 'contact' }).then(function(token) {
-          document.getElementById('recaptchaToken').value = token;
-          form.submit();
-        });
-      });
-    } else {
-      // Si grecaptcha no está disponible, enviar igual (fallback)
-      form.submit();
-    }
-  });
-})();
 
 // Cargar AOS JS en diferido
 function loadAOS() {
@@ -179,6 +146,52 @@ function setupLazyLoading() {
 
 // Inicializar lazy loading cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', setupLazyLoading);
+
+// Envío AJAX del formulario de contacto
+const form = document.getElementById('contact-form');
+const responseBox = document.getElementById('form-response');
+const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
+
+if (form && responseBox && submitBtn) {
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault(); // Evita recargar la página
+
+    const formData = new FormData(form);
+
+    // Anti-bot: si el campo honeypot tiene contenido, cancelamos
+    if (formData.get('website')) return;
+
+    // Estado loading
+    submitBtn.disabled = true;
+    responseBox.style.display = 'none';
+    responseBox.textContent = '';
+    responseBox.className = '';
+
+    try {
+      const token = await grecaptcha.execute('6Let_norAAAAAGLJubmK22lpFTIACv20xt_CCGmG', { action: 'submit' });
+      formData.set('recaptcha_token', token);
+
+      const res = await fetch("https://aivagesolutions.xyz/webhook/form-landing", {
+        method: "POST",
+        body: formData
+      });
+
+      if (res.ok) {
+        form.reset();
+        responseBox.textContent = '¡Gracias! Tu mensaje fue enviado correctamente. Te contactaremos pronto.';
+        responseBox.className = 'form-response-success';
+      } else {
+        throw new Error('No se pudo enviar el formulario.');
+      }
+    } catch (err) {
+      responseBox.textContent = 'Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.';
+      responseBox.className = 'form-response-error';
+    }
+
+    responseBox.style.display = 'block';
+    submitBtn.disabled = false;
+  });
+}
 
 
 
