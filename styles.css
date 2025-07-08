@@ -1858,8 +1858,27 @@ footer {
   }
   .footer-container {
     flex-direction: column;
-    gap: 18px;
     align-items: center;
+    gap: 18px;
+    text-align: center;
+  }
+  .footer-column {
+    align-items: center;
+    text-align: center;
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+  }
+  .footer-logo {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  .copyright {
+    text-align: center;
+  }
+  .recaptcha-notice {
+    text-align: center;
   }
 }
 @media (max-width: 700px) {
