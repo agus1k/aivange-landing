@@ -171,7 +171,7 @@ if (form && responseBox && submitBtn) {
       const token = await grecaptcha.execute('6Let_norAAAAAGLJubmK22lpFTIACv20xt_CCGmG', { action: 'submit' });
       formData.set('recaptcha_token', token);
 
-      const res = await fetch("https://aivagesolutions.xyz/webhook/form-landing", {
+      const res = await fetch("https://n8n.srv893553.hstgr.cloud/webhook/form-landing", {
         method: "POST",
         body: formData
       });
