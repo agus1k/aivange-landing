@@ -378,37 +378,109 @@
   </div>
 </section>
 <!-- Formulario Section -->
-    <section class="contact-form" id="contacto">
-        <div class="container">
-            <div class="form-card" data-aos="fade-up">
-                <h2 class="form-title">Inicia tu Transformación IA. Estamos Listos para Impulsarte.</h2>
-                <p class="form-subtitle">Cuéntanos sobre los desafíos de tu agencia. Agenda una conversación estratégica para explorar cómo la IA puede llevarte al siguiente nivel.</p>
-            <form id="contact-form">
-                <div class="form-group" data-aos="fade-up" data-aos-delay="200">
-                    <label for="name">Nombre</label>
-                    <input type="text" id="name" name="name" placeholder="Nombre" required >
-                </div>
-                <div class="form-group" data-aos="fade-up" data-aos-delay="300">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required  placeholder="Email">
-                </div>
-                <div class="form-group" data-aos="fade-up" data-aos-delay="400">
-                    <label for="company">Empresa</label>
-                    <input type="text" id="company" name="company" placeholder="Empresa">
-                </div>
-                <div class="form-group" data-aos="fade-up" data-aos-delay="500">
-                    <label for="message">Mensaje</label>
-                    <textarea id="message" name="message" placeholder="Escribe tu mensaje aquí" required></textarea>
-                </div>
-                <!-- Honeypot (campo invisible para bots) -->
-                <input type="text" name="website" style="display:none" autocomplete="off">
-                <!-- Campo oculto para token reCAPTCHA -->
-                <input type="hidden" id="recaptchaToken" name="recaptcha_token">
-                <button type="submit" class="btn" data-aos="fade-up" data-aos-delay="600">Optimizar Mi Agencia con IA</button>
-            </form>
-            <div id="form-response" style="display:none; margin-top:10px;"></div>
-        </div>
-    </section>
+<section class="contact-form">
+    <div class="form-layout">
+      <!-- Columna izquierda -->
+      <div class="form-text">
+        <h2 class="form-title">Agenda una reunión</h2>
+        <p class="form-subtitle">Elige el horario que más te convenga para hablar con nuestro equipo.</p>
+        <ul class="form-bullets">
+  <li>
+    <svg class="tick" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Descubre cómo aplicar IA y automatización
+  </li>
+  <li>
+    <svg class="tick" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Ideas personalizadas para tus procesos
+  </li>
+  <li>
+    <svg class="tick" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Consultoría gratuita y sin compromiso
+  </li>
+</ul> 
+      </div>
+
+      <!-- Columna derecha -->
+      <!-- Cal inline embed code begins -->
+  <div style="width:100%;height:100%;overflow:auto" id="my-cal-inline-30min"></div>
+<script type="text/javascript">
+  (function (C, A, L) { 
+    let p = function (a, ar) { a.q.push(ar); }; 
+    let d = C.document; 
+    C.Cal = C.Cal || function () { 
+      let cal = C.Cal; 
+      let ar = arguments; 
+      if (!cal.loaded) { 
+        cal.ns = {}; 
+        cal.q = cal.q || []; 
+        d.head.appendChild(d.createElement("script")).src = A; 
+        cal.loaded = true; 
+      } 
+      if (ar[0] === L) { 
+        const api = function () { p(api, arguments); }; 
+        const namespace = ar[1]; 
+        api.q = api.q || []; 
+        if(typeof namespace === "string"){ 
+          cal.ns[namespace] = cal.ns[namespace] || api; 
+          p(cal.ns[namespace], ar); 
+          p(cal, ["initNamespace", namespace]); 
+        } else p(cal, ar); 
+        return;
+      } 
+      p(cal, ar); 
+    }; 
+  })(window, "https://app.cal.com/embed/embed.js", "init");
+
+  /* Inicializa namespace "30min" */
+  Cal("init", "30min", { origin:"https://app.cal.com" });
+
+  /* Render inline en el div */
+  Cal.ns["30min"]("inline", {
+    elementOrSelector: "#my-cal-inline-30min",
+    config: { layout: "month_view", theme: "light" },
+    calLink: "aivange/30min", // <-- cambia por tu link real
+  });
+
+  /* Personalización de UI y colores */
+  Cal.ns["30min"]("ui", {
+    theme: "light",
+    hideEventTypeDetails: true,
+    layout: "month_view",
+    cssVarsPerTheme: {
+      light: {
+        "cal-brand": "#0066ff",            // color principal
+        "cal-text": "#0066ff",             // textos destacados
+        "cal-text-emphasis": "#0047b3",    // textos fuertes/headers
+        "cal-border-emphasis": "#0047b3",  // bordes destacados
+        "cal-text-error": "#ff4d4f",       // rojo suave para errores
+        "cal-border": "#3399ff",           // bordes estándar
+        "cal-border-default": "#3399ff",
+        "cal-border-subtle": "#80bfff",    // bordes suaves
+        "cal-border-booker": "#3399ff",
+        "cal-text-muted": "#80bfff",       // texto secundario
+        "cal-bg-emphasis": "#e6f2ff",      // fondo resaltado
+        "cal-border-booker-width": "3px"
+      },
+      dark: {
+        "cal-brand": "#3399ff",            // en dark queda mejor un azul más claro
+        "cal-text": "#e6f2ff",             // texto casi blanco con tinte azul
+        "cal-text-emphasis": "#66b2ff",    // headers azul claro
+        "cal-border": "#0066ff"            // bordes intensos en oscuro
+      }
+    }
+  });
+</script>
+
+    <!-- Cal inline embed code ends -->
+      </div>
+    </div>
+</section>
     </main>
     <!-- Footer -->
     <footer>
